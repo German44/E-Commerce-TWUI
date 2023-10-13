@@ -5,7 +5,7 @@ import { CartIcon } from "./CartIcon"
 const CartWidget = () => {
     return (
         <Badge color="danger" content={9} shape="circle">
-            <CartIcon color="#c1965d" size={35} />
+            <CartIcon color="#fff" size={35} />
         </Badge>
     )
 }

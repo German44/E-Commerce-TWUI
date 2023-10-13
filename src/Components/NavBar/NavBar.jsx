@@ -1,7 +1,8 @@
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import CartWidget from '../CartWidget/CartWidget'
-import Logo from './logo'
+import Logo from "../Logo/Logo"
+
 
 
 const navigation = [
