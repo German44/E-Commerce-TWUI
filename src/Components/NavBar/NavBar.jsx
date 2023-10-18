@@ -2,19 +2,9 @@ import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import CartWidget from '../CartWidget/CartWidget'
 import Logo from "../Logo/Logo"
+import { Link, NavLink } from 'react-router-dom'
+import Styles from "../NavBar/styles.modules.css"
 
-
-
-const navigation = [
-    { name: 'Inicio', href: '#', current: true },
-    { name: 'Productos', href: '#', current: false },
-    { name: 'Contacto', href: '#', current: false },
-]
-
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function Example() {
     return (
@@ -36,27 +26,21 @@ export default function Example() {
                                     </Disclosure.Button>
                                 </div>
                                 <div className="flex flex-shrink-0 items-center mr-[200px]">
-
-                                    <Logo color="#fff" colorFondo="#000" />
+                                    <Link to={`/inicio`}>
+                                        <Logo color="#fff" colorFondo="#000" />
+                                    </Link>
                                 </div>
                                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
-                                    {navigation.map((item) => (
-                                        <a
-                                            key={item.name}
-                                            href={item.href}
-                                            className={classNames(
-                                                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                'px-3 py-2 rounded-md text-sm font-medium'
-                                            )}
-                                            aria-current={item.current ? 'page' : undefined}
-                                        >
-                                            {item.name}
-                                        </a>
-                                    ))}
+
+                                    <NavLink to={`/inicio`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Inicio</NavLink>
+                                    <NavLink to={`/productos`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Productos</NavLink>
+                                    <NavLink to={`/contacto`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Contacto</NavLink>
+
                                 </div>
                             </div>
                             <div className="flex items-center">
                                 <div className="flex-shrink-0">
+                                    { /* Componente CARRITO */}
                                     <CartWidget />
                                 </div>
                             </div>
@@ -64,21 +48,10 @@ export default function Example() {
                     </div>
 
                     <Disclosure.Panel className="md:hidden">
-                        <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                            {navigation.map((item) => (
-                                <Disclosure.Button
-                                    key={item.name}
-                                    as="a"
-                                    href={item.href}
-                                    className={classNames(
-                                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                        'block px-3 py-2 rounded-md text-base font-medium'
-                                    )}
-                                    aria-current={item.current ? 'page' : undefined}
-                                >
-                                    {item.name}
-                                </Disclosure.Button>
-                            ))}
+                        <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3 w-full h-auto flex flex-col items-center">
+                            <NavLink to={`/inicio`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Inicio</NavLink>
+                            <NavLink to={`/productos`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Productos</NavLink>
+                            <NavLink to={`/contacto`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Contacto</NavLink>
                         </div>
                     </Disclosure.Panel>
                 </>

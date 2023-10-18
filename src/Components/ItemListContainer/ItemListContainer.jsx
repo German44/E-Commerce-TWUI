@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "../ItemListContainer/Styles.module.css"
 import ItemCard from "../ItemCard/ItemCard"
+import { Spinner } from "@nextui-org/react"
 
 function ItemListContainer({ greetings }) {
 
@@ -17,17 +18,25 @@ function ItemListContainer({ greetings }) {
 
     return (
         <div className={styles.itemListContainer}>
-            <div  className="w-full h-auto flex justify-center items-center ">
+            <div className="w-full h-auto flex justify-center items-center ">
                 <h1 id="greetings" className="font-['Open_Sans'] text-[2rem] sm:text-[5rem] text-warning hover:text-danger hover:scale-100">{greetings}</h1>
             </div>
             <div className="w-3/4 gap-10 grid grid-cols-1 sm:grid-cols-4 p-10 ">
-                {products.map((product) => (
-                    <ItemCard key={product.id} producto={product} />
-                ))
+                {products.length ?
+                    (
+                        products.map((product) => (
+                            <ItemCard key={product.id} producto={product} />))
+                    )
+                    :
+                    (
+                        <div className="w-full h-[100vh] ">
+                            <Spinner label="CARGANDO" color="warning" labelColor="warning" />
+                        </div>
+                    )
                 }
             </div>
         </div>
     )
 }
-// {styles.titleContainer}
+
 export default ItemListContainer;
