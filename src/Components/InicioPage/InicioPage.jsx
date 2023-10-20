@@ -83,10 +83,10 @@ export default function InicioPage() {
                             </div>
                             {/* LINKEADO A PRODUCTOS */}
                             <Link
-                                to={`/productos`}
+                                to={`/`}
                                 className="inline-block rounded-md border border-transparent bg-warning-600 py-3 px-8 text-center font-medium text-black hover:bg-purple-700"
                             >
-                                Shop Collection
+                                Productos
                             </Link>
                         </div>
                     </div>

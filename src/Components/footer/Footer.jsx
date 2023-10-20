@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom"
 
 const navigation = {
     main: [
-        { name: 'About', href: '#' },
-        { name: 'Blog', href: '#' },
-        { name: 'Jobs', href: '#' },
-        { name: 'Press', href: '#' },
-        { name: 'Accessibility', href: '#' },
-        { name: 'Partners', href: '#' },
+        { name: 'Inicio', href: '/inicio' },
+        { name: 'Productos', href: '/' },
+
+
+        { name: 'Contacto', href: '/contacto' },
     ],
     social: [
         {
@@ -88,10 +88,10 @@ export default function Footer() {
                 </nav>
                 <div className="mt-10 flex justify-center space-x-10">
                     {navigation.social.map((item) => (
-                        <a key={item.name} href={item.href} className="text-purple-400 hover:text-warning-500">
+                        <Link key={item.name} to={item.to} className="text-purple-400 hover:text-warning-500">
                             <span className="sr-only">{item.name}</span>
                             <item.icon className="h-6 w-6" aria-hidden="true" />
-                        </a>
+                        </Link>
                     ))}
                 </div>
                 <p className="mt-10 text-center text-xs leading-5 text-warning-500">

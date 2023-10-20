@@ -12,7 +12,11 @@ module.exports = {
   ],
   
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        squealer: ['Squealer', 'sans'],
+      },
+    },
   },
   darkMode: "class",
   plugins: [nextui()]

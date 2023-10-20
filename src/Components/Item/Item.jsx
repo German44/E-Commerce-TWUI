@@ -1,4 +1,5 @@
 import { Card, CardFooter, CardHeader, Image, Button } from "@nextui-org/react"
+import { Link } from "react-router-dom"
 
 const ItemCard = ({ producto }) => {
     return (
@@ -18,9 +19,12 @@ const ItemCard = ({ producto }) => {
                     <p className="text-black text-lg">{producto.price}</p>
                     <p className="text-black text-tiny">{producto.category}</p>
                 </div>
-                <Button className="text-tiny" color="primary" radius="full" size="sm">
-                    Comprar
-                </Button>
+                <Link to={`/item/${producto.id}`}>
+                    <Button className="text-sm" color="secondary" radius="full" size="sm">
+                        Ver mas..
+                    </Button>
+                </Link>
+
             </CardFooter>
         </Card>
     )
