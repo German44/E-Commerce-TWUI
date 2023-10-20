@@ -4,7 +4,7 @@ import CartWidget from '../CartWidget/CartWidget'
 import Logo from "../Logo/Logo"
 import { Link, NavLink } from 'react-router-dom'
 import Styles from "../NavBar/styles.modules.css"
-import DropDown from '../Dropdown/Dropdown'
+
 
 
 export default function Example() {
