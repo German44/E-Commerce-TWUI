@@ -7,7 +7,7 @@ const CartWidget = () => {
     return (
         <Link >
             <Badge color="danger" content={9} shape="circle">
-                <CartIcon color="#fff" size={35} />
+                <CartIcon color="#FFCC53" size={35} />
             </Badge>
         </Link>
 

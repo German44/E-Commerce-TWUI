@@ -28,14 +28,26 @@ export default function Example() {
                                 </div>
                                 <div className="flex flex-shrink-0 items-center mr-[200px]">
                                     <Link to={`/inicio`}>
-                                        <Logo  color="#FFCC53" colorFondo="#000" />
+                                        <Logo color="#FFCC53" colorFondo="#000" />
                                     </Link>
                                 </div>
                                 <div className="hidden md:ml-6 md:flex md:items-center md:space-x-4">
 
-                                    <NavLink to={`/inicio`} className={'text-warning text-3xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Inicio</NavLink>
-                                    <NavLink to={`/`} className={'text-warning text-3xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Productos</NavLink>
-                                    <NavLink to={`/contacto`} className={'text-warning text-3xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Contacto</NavLink>
+                                    <NavLink
+                                        to={`/inicio`}
+                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium'}>
+                                        Inicio
+                                    </NavLink>
+                                    <NavLink
+                                        to={`/`}
+                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium '}>
+                                        Productos
+                                    </NavLink>
+                                    <NavLink
+                                        to={`/contacto`}
+                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium'} >
+                                        Contacto
+                                    </NavLink>
                                 </div>
                             </div>
                             <div className="flex items-center">
