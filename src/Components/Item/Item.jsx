@@ -5,7 +5,7 @@ const ItemCard = ({ producto }) => {
     return (
         <Card isFooterBlurred className="w-full h-[320px] hover:scale-105 ">
             <CardHeader className="absolute z-10 top-1 flex-col items-start">
-                <p className="text-sm text-white/60 uppercase font-bold">New</p>
+                <p className="text-sm text-purple-600 uppercase font-bold">New</p>
                 <h4 className="text-danger font-medium text-2xl">{producto.title}</h4>
             </CardHeader>
             <Image

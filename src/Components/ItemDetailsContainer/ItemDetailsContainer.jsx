@@ -2,6 +2,7 @@
 import { QuestionMarkCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import Counter from '../Counter/Counter'
 
 
 export default function ItemDetailsContainer() {
@@ -16,10 +17,7 @@ export default function ItemDetailsContainer() {
                 console.log(json);
             })
             .catch(err => console.error(err))
-
-
     }, [id])
-
 
     return (
         <div className="bg-black">
@@ -62,7 +60,7 @@ export default function ItemDetailsContainer() {
 
                         <form>
                             <div className="sm:flex sm:justify-between">
-                                {/* contador selector */}
+                                <Counter/>
                             </div>
                             <div className="mt-4">
                                 <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">
