@@ -6,29 +6,19 @@ import Counter from '../Counter/Counter'
 
 
 export default function ItemDetailsContainer() {
-    const [products, setProducts,] = useState()
+    const [products, setProducts,] = useState([])
 
-    const { productId } = useParams()
-    // useEffect(() => {
-    //     fetch(`https://fakestoreapi.com/products/${id}`)
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             setProducts(json);
-    //             console.log(json);
-    //         })
-    //         .catch(err => console.error(err))
-    // }, [id])
+    const { id } = useParams()
+    useEffect(() => {
+        fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(res => res.json())
+            .then(json => {
+                setProducts(json);
+                console.log(json);
+            })
+            .catch(err => console.error(err))
+    }, [id])
 
-    const url = productId ? `https://fakestoreapi.com/products/${productId}` : `https://fakestoreapi.com/products/`
-
-        useEffect(() => {
-            fetch(url)
-                .then(res => res.json())
-                .then(json => {
-                    setProducts(json)
-                })
-                .catch(e => console.error(e))
-        }, [productId])
 
     return (
         <div className="bg-black">

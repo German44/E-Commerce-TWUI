@@ -17,7 +17,7 @@ function App() {
           <Route exact path='/inicio' element={<InicioPage/>}/>
           <Route exact path='/' element={<ItemListContainer greetings="Indumentaria Rockera" />}/>
           <Route exact path='/category/:id' element={<ItemListContainer greetings="Indumentaria Rockera" />}/>
-          <Route exact path='/products/:productId' element={<ItemDetailsContainer/>}/>
+          <Route exact path='/products/:id' element={<ItemDetailsContainer/>}/>
 
           <Route path='*' element={<NotFoundPage/>} />
         </Routes>

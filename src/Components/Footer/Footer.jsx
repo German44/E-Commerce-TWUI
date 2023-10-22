@@ -4,8 +4,6 @@ const navigation = {
     main: [
         { name: 'Inicio', href: '/inicio' },
         { name: 'Productos', href: '/' },
-
-
         { name: 'Contacto', href: '/contacto' },
     ],
     social: [
