@@ -19,7 +19,7 @@ const ItemCard = ({ producto }) => {
                     <p className="text-black text-lg">{producto.price}</p>
                     <p className="text-black text-tiny">{producto.category}</p>
                 </div>
-                <Link to={`/item/${producto.id}`}>
+                <Link to={`/products/${producto.id}`}>
                     <Button className="text-sm" color="secondary" radius="full" size="sm">
                         Ver mas..
                     </Button>
