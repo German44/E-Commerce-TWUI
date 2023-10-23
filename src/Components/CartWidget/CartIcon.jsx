@@ -1,7 +1,7 @@
 export const CartIcon = ({ size, height, width, color, ...props }) => {
     return (
         <svg
-            fill={color || "currentColor"} // Usar "currentColor" como valor predeterminado
+            fill={color || "currentColor"} 
             height={size || height || 24}
             viewBox="0 0 24 24"
             width={size || width || 24}
