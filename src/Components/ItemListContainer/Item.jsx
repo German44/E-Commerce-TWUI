@@ -1,7 +1,11 @@
 import { Card, CardFooter, CardHeader, Image, Button } from "@nextui-org/react"
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import { CartContext } from "../../Context/CartContext"
 
-const ItemCard = ({ producto }) => {
+const Item = ({ producto }) => {
+    const { numero, setNumero } = useContext(CartContext)
+
     return (
         <Card isFooterBlurred className="w-full h-[320px] hover:scale-105 ">
             <CardHeader className="absolute z-10 top-1 flex-col items-start">
@@ -23,6 +27,9 @@ const ItemCard = ({ producto }) => {
                     <Button className="text-sm" color="secondary" radius="full" size="sm">
                         Ver mas..
                     </Button>
+
+                    {/* CONTEXT */}
+                    <p>{numero}</p>
                 </Link>
 
             </CardFooter>
@@ -30,4 +37,4 @@ const ItemCard = ({ producto }) => {
     )
 }
 
-export default ItemCard
+export default Item

@@ -1,25 +1,6 @@
-
 import { QuestionMarkCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import Counter from '../Counter/Counter'
-
-
-export default function ItemDetailsContainer() {
-    const [products, setProducts,] = useState([])
-
-    const { id } = useParams()
-    useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then(res => res.json())
-            .then(json => {
-                setProducts(json);
-                console.log(json);
-            })
-            .catch(err => console.error(err))
-    }, [id])
-
-
+import ItemCount from './ItemCount'
+function ItemDetail({products}) {
     return (
         <div className="bg-black">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
@@ -61,7 +42,7 @@ export default function ItemDetailsContainer() {
 
                         <form>
                             <div className="sm:flex sm:justify-between">
-                                <Counter />
+                                <ItemCount/>
                             </div>
                             <div className="mt-4">
                                 <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">
@@ -96,3 +77,5 @@ export default function ItemDetailsContainer() {
         </div>
     )
 }
+
+export default ItemDetail
