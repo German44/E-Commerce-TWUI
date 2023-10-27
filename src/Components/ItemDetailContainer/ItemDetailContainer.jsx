@@ -6,7 +6,7 @@ import ItemDetail from './ItemDetail'
 
 
 export default function ItemDetailsContainer() {
-    const [products, setProducts,] = useState([])
+    const [products, setProducts,] = useState()
 
     const { id } = useParams()
     useEffect(() => {

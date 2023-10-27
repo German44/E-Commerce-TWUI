@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import styles from "../ItemListContainer/Styles.module.css"
 import DropDown from "../Dropdown/Dropdown"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
@@ -19,9 +18,8 @@ function ItemListContainer({ greetings }) {
             .catch(err => { console.error(err) });
 
     }, [id])
-
     return (
-        <div className={styles.itemListContainer}>
+        <div className="w-full h-auto flex flex-col items-center ">
             <div className="w-full h-auto flex justify-center gap-20 items-center ">
                 <h1 id="greetings" className="font-squealer text-[2rem] sm:text-[5rem] text-warning hover:text-danger hover:scale-100 ">{greetings}</h1>
                 <DropDown />

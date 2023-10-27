@@ -1,10 +1,12 @@
 import { QuestionMarkCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 import ItemCount from './ItemCount'
-function ItemDetail({products}) {
+
+
+function ItemDetail({ products }) {
     return (
-        <div className="bg-black">
+
+        <div className="">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-                {/* Product details */}
                 <div className="lg:max-w-lg lg:self-end">
 
                     <div className="mt-4">
@@ -26,14 +28,12 @@ function ItemDetail({products}) {
                     </section>
                 </div>
 
-                {/* Product image */}
                 <div className="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
                     <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
                         <img src={products?.image} alt={products?.image} className="h-full w-full object-cover object-center" />
                     </div>
                 </div>
 
-                {/* Product form */}
                 <div className="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
                     <section aria-labelledby="options-heading">
                         <h2 id="options-heading" className="sr-only">
@@ -42,7 +42,7 @@ function ItemDetail({products}) {
 
                         <form>
                             <div className="sm:flex sm:justify-between">
-                                <ItemCount/>
+                                <ItemCount />
                             </div>
                             <div className="mt-4">
                                 <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">
@@ -75,6 +75,7 @@ function ItemDetail({products}) {
                 </div>
             </div>
         </div>
+
     )
 }
 
