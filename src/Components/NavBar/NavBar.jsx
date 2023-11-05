@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import CartWidget from '../CartWidget/CartWidget'
 import Logo from "../Logo/Logo"
 import { Link, NavLink } from 'react-router-dom'
-import Styles from "../NavBar/styles.modules.css"
+import Styles from "../NavBar/styles.module.css"
 
 
 

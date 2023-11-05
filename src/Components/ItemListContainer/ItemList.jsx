@@ -11,8 +11,8 @@ const ItemList = ({ products }) => {
                 )
                 :
                 (
-                    <div className="w-full h-[100vh] ">
-                        <Spinner label="CARGANDO" color="warning" labelColor="warning" />
+                    <div className="w-full h-[100vh]">
+                        <Spinner label="CARGANDO" color="secondary" labelColor="secondary" />
                     </div>
                 )
             }

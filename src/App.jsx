@@ -7,6 +7,7 @@ import Footer from "./Components/Footer/Footer"
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer"
 import NotFoundPage from "./Components/NotFoundPage/NotFoundPage"
 import CartContextComponent from "./Context/CartContext"
+import CartDetail from "./Components/cartDetail/CartDetail"
 
 function App() {
 
@@ -21,6 +22,8 @@ function App() {
             <Route exact path='/' element={<ItemListContainer greetings="Indumentaria Rockera" />} />
             <Route exact path='/category/:id' element={<ItemListContainer greetings="Indumentaria Rockera" />} />
             <Route exact path='/products/:id' element={<ItemDetailContainer />} />
+            <Route exact path='/cart' element={<CartDetail />} />
+
 
             <Route path='*' element={<NotFoundPage />} />
           </Routes>

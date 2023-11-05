@@ -1,11 +1,27 @@
 import { QuestionMarkCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 import ItemCount from './ItemCount'
+import { useContext, useEffect } from 'react'
+import { CartContext } from '../../Context/CartContext'
+import { Button } from '@nextui-org/react';
 
 
 function ItemDetail({ products }) {
-    return (
 
-        <div className="">
+    const { setCartList, cartList, addToCart, } = useContext(CartContext);
+    const handleAddToCart = () => {
+        const cart = [{
+            id: products?.id,
+            title: products?.title,
+            price: products?.price,
+            image: products.image
+        }]
+        console.log(cart);
+        setCartList(...cartList, cart);
+    };
+
+
+    return (
+        <div className="container">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <div className="lg:max-w-lg lg:self-end">
 
@@ -53,13 +69,12 @@ function ItemDetail({ products }) {
                                     />
                                 </a>
                             </div>
-                            <div className="mt-10">
-                                <button
-                                    type="submit"
-                                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-purple-700 py-3 px-8 text-base font-medium text-white hover:bg-warning focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                                >
+                            <div className="mt-10 flex justify-center">
+                                <Button
+                                    color="warning"
+                                    onClick={handleAddToCart}>
                                     Agregar al Carrito
-                                </button>
+                                </Button>
                             </div>
                             <div className="mt-6 text-center">
                                 <a href="#" className="group inline-flex text-base font-medium">
