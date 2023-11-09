@@ -2,7 +2,7 @@
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
 
-const Counter = () => {
+const ItemCount = (props) => {
 
     const [counter, setCounter] = useState(1);
 
@@ -13,7 +13,7 @@ const Counter = () => {
     function suma() {
         counter < 10 && setCounter(counter + 1);
     }
-
+    props.sendData(counter)
     return (
         <div className=" w-full flex justify-around ">
             <Button
@@ -21,7 +21,9 @@ const Counter = () => {
                 color="secondary">
                 +
             </Button>
-            <p className=" flex items-center justify-center rounded-lg bg-warning w-[40px] h-[40px] text-lg color-purple-700 font-bold ">{counter}</p>
+            <p className=" flex items-center justify-center rounded-lg bg-warning w-[40px] h-[40px] text-lg color-purple-700 font-bold ">
+                {counter}
+            </p>
             <Button
                 onClick={resta}
                 color="secondary">
@@ -31,4 +33,4 @@ const Counter = () => {
     )
 }
 
-export default Counter
+export default ItemCount

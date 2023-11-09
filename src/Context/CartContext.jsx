@@ -1,27 +1,47 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const CartContext = createContext()
 
 const CartContextComponent = ({ children }) => {
 
-    const [cartList, setCartList] = useState([])
+    const [cartList, setCartList] = useState(() => {
+        const localCart = JSON.parse(localStorage.getItem("localCartList"))
+        return localCart || []
+    })
 
-const addToCart = (cart ) => {
-        setCartList([...cartList, cart]);
-        console.log(cartList);
-    }
+    const addToCart = (cart) => {
 
-    const removeToCart = (productToRemove) => {
-        const updatedCart = cartList.filter((product) => product !== productToRemove);
+        const index = cartList.findIndex(item => item.id === cart.id);
+
+        if (index !== -1) {
+            cartList[index].quantity += cart.quantity;
+            setCartList([...cartList]);
+
+        } else {
+            setCartList([...cartList, cart]);
+        }
+    };
+
+    useEffect(() => {
+        localStorage.setItem("localCartList", JSON.stringify(cartList))
+    }, [cartList])
+
+    console.log(cartList);
+
+    const removeToCart = (productIdToRemove) => {
+        const updatedCart = cartList.filter(product => product.id !== productIdToRemove);
         setCartList(updatedCart);
-    }
+    };
 
     const deleteCart = () => {
         setCartList([]);
     }
+    //* Metodo que suma las cantidades totales del carrito
+    const quantityTotal = cartList.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
+
 
     return (
-        < CartContext.Provider value={{ setCartList, cartList, addToCart, removeToCart, deleteCart}} >
+        < CartContext.Provider value={{ quantityTotal, setCartList, cartList, addToCart, removeToCart, deleteCart }} >
             {children}
         </ CartContext.Provider>
     )

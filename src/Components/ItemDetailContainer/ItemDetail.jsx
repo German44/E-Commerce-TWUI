@@ -1,26 +1,34 @@
 import { QuestionMarkCircleIcon, ShieldCheckIcon } from '@heroicons/react/24/outline'
 import ItemCount from './ItemCount'
-import { useContext, useEffect } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Button } from '@nextui-org/react';
 
+
+
 function ItemDetail({ products }) {
 
-    const { setCartList, cartList, addToCart, } = useContext(CartContext);
-    // const handleAddToCart = () => {
-    //     const cart = [{
-    //         id: products?.id,
-    //         title: products?.title,
-    //         price: products?.price,
-    //         image: products.image
-    //     }]
-    //     console.log(cart);
-    //     setCartList(...cartList, cart);
-    // };
-
+    //* Funcion traida del context agrega al carrito el objeto creado
+    const { addToCart, } = useContext(CartContext);
+    const handleAddToCart = () => {
+        const cart =
+        {
+            id: products?.id,
+            title: products?.title,
+            price: products?.price,
+            image: products?.image,
+            quantity: data
+        }
+        console.log(cart);
+        addToCart(cart);
+    };
+    //* Funcion para elevar el dato del contador al padre
+    const [data, setData] = useState(1);
+    const dataCount = (nro) => {
+        setData(nro);
+    }
 
     return (
-
         <div className="container">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <div className="lg:max-w-lg lg:self-end">
@@ -35,7 +43,7 @@ function ItemDetail({ products }) {
                         </h2>
 
                         <div className="flex items-center">
-                            <p className="text-lg text-purple-500 sm:text-3xl">{products?.price}</p>
+                            <p className="text-lg text-purple-500 sm:text-3xl">${products?.price}</p>
                         </div>
 
                         <div className="mt-4 space-y-6">
@@ -58,7 +66,8 @@ function ItemDetail({ products }) {
 
                         <form>
                             <div className="sm:flex sm:justify-between">
-                                <ItemCount />
+                                {/* Contador con la funcion por props */}
+                                <ItemCount sendData={dataCount} />
                             </div>
                             <div className="mt-4">
                                 <a href="#" className="group inline-flex text-sm text-gray-500 hover:text-gray-700">

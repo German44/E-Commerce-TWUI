@@ -2,6 +2,8 @@ import React from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
+
+
 export default function DropDown() {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["categorias"]));
 
@@ -11,6 +13,7 @@ export default function DropDown() {
     );
 
     return (
+
         <Dropdown>
             <DropdownTrigger>
                 <Button
@@ -23,6 +26,7 @@ export default function DropDown() {
                 </Button>
             </DropdownTrigger>
             <DropdownMenu
+                className="bg-black text-warning"
                 color="warning"
                 aria-label="Static Actions"
                 variant="flat"
@@ -31,12 +35,11 @@ export default function DropDown() {
                 selectedKeys={selectedKeys}
                 onSelectionChange={setSelectedKeys}
             >
-                <DropdownItem key="Ropa masculina"><Link to={`/category/men's clothing`}>Ropa masculina</Link></DropdownItem>
-                <DropdownItem key="Ropa femenina"><Link to={`/category/women's clothing`}>Ropa femenina</Link></DropdownItem>
-                <DropdownItem key="joyas"><Link to={`/category/jewelery`}>Joyas</Link></DropdownItem>
-                <DropdownItem key="Electronica"><Link to={`/category/electronics`}>Electronica</Link></DropdownItem>
-
+                <DropdownItem key="Remeras"><Link to={`/remeras`}>Remeras</Link></DropdownItem>
+                <DropdownItem key="Buzos"><Link to={`/buzos`}>Buzos</Link></DropdownItem>
+                <DropdownItem key="Gorras"><Link to={`/gorras`}>Gorras</Link></DropdownItem>
             </DropdownMenu>
         </Dropdown>
+
     );
 }

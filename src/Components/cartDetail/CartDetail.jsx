@@ -1,13 +1,18 @@
 
 import { useContext } from 'react';
-import ItemCount from '../ItemDetailContainer/ItemCount'
+// import ItemCount from '../ItemDetailContainer/ItemCount'
 import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 
 export default function CartDetail() {
 
-    const { cartList } = useContext(CartContext);
+    const { cartList, removeToCart } = useContext(CartContext);
     console.log(cartList);
+
+    const handleRemoveFromCart = (productIdToRemove) => {
+        removeToCart(productIdToRemove);
+    };
+
 
 
     return (
@@ -35,18 +40,16 @@ export default function CartDetail() {
                                         <div>
                                             <div className="flex justify-between">
                                                 <h4 className="font-bold text-xl text-secondary hover:text-secondary-200">
-                                                    {/* <a href={product.href} className="font-bold text-xl text-secondary hover:text-secondary-200">
-                                                        {product.name}
-                                                    </a> */}
                                                     {product.title}
                                                 </h4>
-                                                <p className="ml-4 text-xl font-medium text-red-800">{product.price}</p>
+                                                <p className="ml-4 text-xl font-medium text-red-800">Cantidad:{product.quantity}</p>
+                                                <p className="ml-4 text-xl font-medium text-red-800">${product.price}</p>
                                             </div>
                                         </div>
                                         <div className="mt-4 flex flex-1 items-end justify-between">
-                                            <ItemCount />
+                                            {/* <ItemCount /> */}
                                             <div className="ml-4">
-                                                <button type="button" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                                <button type="button" onClick={() => handleRemoveFromCart(product.id)} className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                                     <span>Eliminar</span>
                                                 </button>
                                             </div>
@@ -66,7 +69,7 @@ export default function CartDetail() {
                                     <dd className="ml-4 text-base font-medium text-gray-400">$96.00</dd>
                                 </div>
                             </dl>
-                            <p className="mt-1 text-sm text-gray-500">Shipping and taxes will be calculated at checkout.</p>
+                            <p className="mt-1 text-sm text-red-500">Shipping and taxes will be calculated at checkout.</p>
                         </div>
 
                         <div className="mt-10">
@@ -81,8 +84,8 @@ export default function CartDetail() {
                         <div className="mt-6 text-center text-sm">
                             <p>
                                 or
-                                <Link to={"/"} className="font-medium text-indigo-600 hover:text-indigo-500">
-                                    Continue Shopping
+                                <Link to={"/"} className="font-bold text-lg text-purple-600 hover:text-purple-400">
+                                    Continua Comprando
                                     <span aria-hidden="true"> &rarr;</span>
                                 </Link>
                             </p>

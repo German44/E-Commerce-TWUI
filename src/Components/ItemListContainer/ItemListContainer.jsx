@@ -3,7 +3,7 @@ import DropDown from "../Dropdown/Dropdown"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 import { db } from '../../firebase/client'
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
 
 function ItemListContainer({ greetings }) {
 
@@ -12,27 +12,27 @@ function ItemListContainer({ greetings }) {
 
 
     useEffect(() => {
-        if(id)
-        {
-            const productRef = doc(db, "products", `${id}`)
-            getDoc(productRef)
-            .then((snapshot) => {
-                if(snapshot.exists()){
-                    const productsData = { id: snapshot.id, ...snapshot.data()}
-                    console.log(productsData)
-                    setProducts(productsData)
-                }
-            })
-        }
-        const productsRef = collection(db, "products")
-        getDocs(productsRef)
+
+        const url = id ?
+
+            query(
+                collection(db, "products"),
+                where("categoryId", "==", `${id}`))
+
+            :
+            collection(db, "products")
+
+
+        getDocs(url)
             .then(snapshot => {
-            const productsData =    snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+                const productsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 console.log(productsData)
                 setProducts(productsData)
             })
             .catch(e => console.error(e))
+
     }, [id])
+
 
     // const url = id ? `https://fakestoreapi.com/products/category/${id}` : `https://fakestoreapi.com/products`
     // useEffect(() => {
@@ -45,6 +45,7 @@ function ItemListContainer({ greetings }) {
     //         .catch(err => { console.error(err) });
 
     // }, [id])
+
     return (
         <div className="w-full h-auto flex flex-col items-center ">
             <div className="w-full h-auto flex justify-center gap-20 items-center ">
