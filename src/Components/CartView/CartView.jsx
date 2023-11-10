@@ -1,17 +1,18 @@
 
 import { useContext } from 'react';
-// import ItemCount from '../ItemDetailContainer/ItemCount'
 import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 
 export default function CartView() {
 
-    const { cartList, removeToCart, deleteCart } = useContext(CartContext);
+    const { cartList, removeToCart, deleteCart, checkoutData } = useContext(CartContext);
     console.log(cartList);
 
     const handleRemoveFromCart = (productIdToRemove) => {
         removeToCart(productIdToRemove);
     };
+
+
 
     const subTotal = () => {
         let total = 0;
@@ -25,8 +26,23 @@ export default function CartView() {
         let totalItem = a * b
         return totalItem
     }
-    const handleCheckout = () => {
+    const handleWipe = () => {
         deleteCart();
+    }
+    const handleCheckout = () => {
+        const cartData = [];
+
+        cartList.map((product) => (
+            cartData.push({
+                id: product.id,
+                title: product.title,
+                price: total(product.quantity, product.price),
+                quantity: product.quantity,
+            })
+        ));
+
+        checkoutData(cartData);
+        console.log(cartData);
     }
 
     return (
@@ -63,7 +79,6 @@ export default function CartView() {
                                         <div className="bg-white/10 rounded-xl h-auto flex  items-end justify-between">
                                             <p className="ml-4 text-xl font-medium text-indigo-800">Cantidad: {product.quantity}</p>
                                             <p className="ml-4 text-xl font-medium text-indigo-800">Total $ {total(product.quantity, product.price)}</p>
-                                            {/* <ItemCount /> */}
                                             <div className="ml-4">
                                                 <button
                                                     type="button"
@@ -95,11 +110,17 @@ export default function CartView() {
                             <Link to={`/checkout`}>
                                 <button
                                     onClick={handleCheckout}
-                                    className="w-full rounded-md border border-transparent bg-warning-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-warning-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                                    className="w-full rounded-md border border-transparent bg-warning-600 py-3 px-4 text-base font-medium text-purple shadow-sm hover:bg-warning-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
                                 >
                                     Checkout
                                 </button>
                             </Link>
+                            <button
+                                onClick={handleWipe}
+                                className="w-full rounded-md border border-transparent bg-warning-600 py-3 px-4 mt-4 text-base font-medium text-purple shadow-sm hover:bg-warning-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                            >
+                                Limpiar Carrito
+                            </button>
                         </div>
 
                         <div className="mt-6 text-center text-sm">

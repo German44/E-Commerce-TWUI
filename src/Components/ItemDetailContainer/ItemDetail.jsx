@@ -3,6 +3,7 @@ import ItemCount from './ItemCount'
 import { useContext, useState } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Button } from '@nextui-org/react';
+import { Link } from 'react-router-dom';
 
 
 function ItemDetail({ products }) {
@@ -77,11 +78,13 @@ function ItemDetail({ products }) {
                                 </a>
                             </div>
                             <div className="mt-10 flex justify-center">
-                                <Button
-                                    color="warning"
-                                    onClick={handleAddToCart}>
-                                    Agregar al Carrito
-                                </Button>
+                                <Link to={"/cart"} >
+                                    <Button
+                                        color="warning"
+                                        onClick={handleAddToCart}>
+                                        Agregar al Carrito
+                                    </Button>
+                                </Link>
                             </div>
                             <div className="mt-6 text-center">
                                 <a href="#" className="group inline-flex text-base font-medium">
