@@ -5,7 +5,6 @@ import { CartContext } from '../../Context/CartContext'
 import { Button } from '@nextui-org/react';
 
 
-
 function ItemDetail({ products }) {
 
     //* Funcion traida del context agrega al carrito el objeto creado
@@ -27,10 +26,9 @@ function ItemDetail({ products }) {
     const dataCount = (nro) => {
         setData(nro);
     }
-
     return (
         <div className="container">
-            <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 bg-black/60 backdrop:blur-xl">
                 <div className="lg:max-w-lg lg:self-end">
 
                     <div className="mt-4">
@@ -99,8 +97,6 @@ function ItemDetail({ products }) {
                 </div>
             </div>
         </div>
-
     )
 }
-
 export default ItemDetail

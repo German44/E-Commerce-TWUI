@@ -35,9 +35,9 @@ export default function DropDown() {
                 selectedKeys={selectedKeys}
                 onSelectionChange={setSelectedKeys}
             >
-                <DropdownItem key="Remeras"><Link to={`/remeras`}>Remeras</Link></DropdownItem>
-                <DropdownItem key="Buzos"><Link to={`/buzos`}>Buzos</Link></DropdownItem>
-                <DropdownItem key="Gorras"><Link to={`/gorras`}>Gorras</Link></DropdownItem>
+                <DropdownItem key="Remeras"><Link to={`/category/remeras`}>Remeras</Link></DropdownItem>
+                <DropdownItem key="Buzos"><Link to={`/category/buzos`}>Buzos</Link></DropdownItem>
+                <DropdownItem key="Gorras"><Link to={`/category/gorras`}>Gorras</Link></DropdownItem>
             </DropdownMenu>
         </Dropdown>
 

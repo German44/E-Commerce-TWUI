@@ -7,7 +7,7 @@ import Styles from "../NavBar/style.module.css"
 
 
 
-export default function Example() {
+export default function NavBar() {
     return (
         <Disclosure as="nav" className="bg-black ">
             {({ open }) => (
@@ -44,7 +44,7 @@ export default function Example() {
                                         Productos
                                     </NavLink>
                                     <NavLink
-                                        to={`/contacto`}
+                                        to={`/checkout`}
                                         className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium'} >
                                         Contacto
                                     </NavLink>

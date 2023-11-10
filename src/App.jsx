@@ -7,7 +7,8 @@ import Footer from "./Components/Footer/Footer"
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer"
 import NotFoundPage from "./Components/NotFoundPage/NotFoundPage"
 import CartContextComponent from "./Context/CartContext"
-import CartDetail from "./Components/cartDetail/CartDetail"
+import Checkout from "./Components/Checkout/Checkout"
+import CartView from "./Components/CartView/CartView"
 
 function App() {
 
@@ -20,10 +21,10 @@ function App() {
           <Routes>
             <Route exact path='/inicio' element={<InicioPage />} />
             <Route exact path='/' element={<ItemListContainer greetings="Indumentaria Rockera" />} />
-            <Route exact path=':id' element={<ItemListContainer greetings="Indumentaria Rockera" />} />
+            <Route exact path='/category/:id' element={<ItemListContainer greetings="Indumentaria Rockera" />} />
             <Route exact path='/products/:id' element={<ItemDetailContainer />} />
-            <Route exact path='/cart' element={<CartDetail />} />
-
+            <Route exact path='/cart' element={<CartView />} />
+            <Route exact path='/checkout' element={<Checkout />} />
 
             <Route path='*' element={<NotFoundPage />} />
           </Routes>

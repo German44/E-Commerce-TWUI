@@ -4,16 +4,30 @@ import { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 
-export default function CartDetail() {
+export default function CartView() {
 
-    const { cartList, removeToCart } = useContext(CartContext);
+    const { cartList, removeToCart, deleteCart } = useContext(CartContext);
     console.log(cartList);
 
     const handleRemoveFromCart = (productIdToRemove) => {
         removeToCart(productIdToRemove);
     };
 
+    const subTotal = () => {
+        let total = 0;
+        for (let i = 0; i < cartList.length; i++) {
+            total += cartList[i].price * cartList[i].quantity;
+        }
+        return total;
+    }
 
+    const total = (a, b) => {
+        let totalItem = a * b
+        return totalItem
+    }
+    const handleCheckout = () => {
+        deleteCart();
+    }
 
     return (
         <div className="bg-black">
@@ -36,20 +50,25 @@ export default function CartDetail() {
                                         />
                                     </div>
 
-                                    <div className="ml-4 flex flex-1 flex-col sm:ml-6">
+                                    <div className="ml-4 flex flex-1 justify-between flex-col sm:ml-6">
                                         <div>
                                             <div className="flex justify-between">
                                                 <h4 className="font-bold text-xl text-secondary hover:text-secondary-200">
                                                     {product.title}
                                                 </h4>
-                                                <p className="ml-4 text-xl font-medium text-red-800">Cantidad:{product.quantity}</p>
-                                                <p className="ml-4 text-xl font-medium text-red-800">${product.price}</p>
+
+                                                <p className="ml-4 text-xl font-medium text-purple-800">${product.price}</p>
                                             </div>
                                         </div>
-                                        <div className="mt-4 flex flex-1 items-end justify-between">
+                                        <div className="bg-white/10 rounded-xl h-auto flex  items-end justify-between">
+                                            <p className="ml-4 text-xl font-medium text-indigo-800">Cantidad: {product.quantity}</p>
+                                            <p className="ml-4 text-xl font-medium text-indigo-800">Total $ {total(product.quantity, product.price)}</p>
                                             {/* <ItemCount /> */}
                                             <div className="ml-4">
-                                                <button type="button" onClick={() => handleRemoveFromCart(product.id)} className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => handleRemoveFromCart(product.id)}
+                                                    className="text-sm font-medium text-red-800 hover:text-red-500">
                                                     <span>Eliminar</span>
                                                 </button>
                                             </div>
@@ -66,19 +85,21 @@ export default function CartDetail() {
                             <dl className="space-y-4">
                                 <div className="flex items-center justify-between">
                                     <dt className="text-base font-medium text-gray-200">Subtotal</dt>
-                                    <dd className="ml-4 text-base font-medium text-gray-400">$96.00</dd>
+                                    <dd className="ml-4 text-base font-medium text-gray-400">${subTotal()}</dd>
                                 </div>
                             </dl>
                             <p className="mt-1 text-sm text-red-500">Shipping and taxes will be calculated at checkout.</p>
                         </div>
 
                         <div className="mt-10">
-                            <button
-                                type="submit"
-                                className="w-full rounded-md border border-transparent bg-warning-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-warning-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                            >
-                                Checkout
-                            </button>
+                            <Link to={`/checkout`}>
+                                <button
+                                    onClick={handleCheckout}
+                                    className="w-full rounded-md border border-transparent bg-warning-600 py-3 px-4 text-base font-medium text-white shadow-sm hover:bg-warning-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                                >
+                                    Checkout
+                                </button>
+                            </Link>
                         </div>
 
                         <div className="mt-6 text-center text-sm">

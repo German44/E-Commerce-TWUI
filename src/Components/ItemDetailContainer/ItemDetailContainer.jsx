@@ -39,7 +39,9 @@ function ItemDetailsContainer() {
     // }, [id])
 
     return (
-        <ItemDetail products={products} />
+        <div className='lg:flex lg:items-center lg:justify-center'>
+            <ItemDetail products={products} />
+        </div>
     )
 }
 export default ItemDetailsContainer
