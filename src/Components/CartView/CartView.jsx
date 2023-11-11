@@ -13,7 +13,7 @@ export default function CartView() {
     };
 
 
-
+    //& Posible customHook
     const subTotal = () => {
         let total = 0;
         for (let i = 0; i < cartList.length; i++) {
@@ -21,6 +21,9 @@ export default function CartView() {
         }
         return total;
     }
+
+
+
 
     const total = (a, b) => {
         let totalItem = a * b
@@ -38,7 +41,7 @@ export default function CartView() {
                 title: product.title,
                 price: total(product.quantity, product.price),
                 quantity: product.quantity,
-            })
+            },)
         ));
 
         checkoutData(cartData);

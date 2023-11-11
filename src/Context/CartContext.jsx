@@ -35,7 +35,7 @@ const CartContextComponent = ({ children }) => {
     //* Funcion para vaciar el carrito
     const deleteCart = () => {
         setCartList([]);
-        setCheckData( [])
+        setCheckData([])
     }
     //* Metodo que suma las cantidades totales del carrito
     const quantityTotal = cartList.reduce((accumulator, currentValue) => accumulator + currentValue.quantity, 0);
@@ -43,7 +43,7 @@ const CartContextComponent = ({ children }) => {
     //* Funcion recopila data del carrito para usarlo en el Checkout
     const [checkData, setCheckData] = useState([])
     const checkoutData = (cartData) => {
-        setCheckData( cartData )
+        setCheckData(cartData)
     }
     console.log(checkData)
 
