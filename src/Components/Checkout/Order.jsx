@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import 'firebase/firestore';
 import { Button, Input } from "@nextui-org/react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import ModalCheckout from '../ModalCheckout/ModalCheckout';
 
 const Order = ({ checkData, deleteCart }) => {
     const [userData, setUserData] = useState({
@@ -10,6 +11,7 @@ const Order = ({ checkData, deleteCart }) => {
         apellido: '',
         telefono: '',
         email: '',
+        email1: '',
     });
 
     const subtotal = checkData.reduce((total, product) => {
@@ -24,8 +26,7 @@ const Order = ({ checkData, deleteCart }) => {
         }));
     };
 
-    // const [orderId, setOrderId] = useState(null);
-    // console.log(orderId);
+    const [orderId, setOrderId] = useState(null);
 
     const order = {
         buyer: {
@@ -38,12 +39,34 @@ const Order = ({ checkData, deleteCart }) => {
         total: subtotal,
     }
     const handleConfirmCompra = () => {
-
-        const db = getFirestore();
-        const ordersCollection = collection(db, 'orders');
-        addDoc(ordersCollection, order).then(({ id }) => console.log(id));
-        deleteCart();
+        if (validation()) {
+            const db = getFirestore();
+            const ordersCollection = collection(db, 'orders');
+            addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+            deleteCart();
+            setUserData({
+                nombre: '',
+                apellido: '',
+                telefono: '',
+                email: '',
+                email1: '',
+            });
+        }
     };
+
+    // useEffect(() => {
+    //     console.log(orderId);
+    //     <ModalCheckout orderId={orderId} />
+    // }, [orderId]);
+
+
+    //* Funcion validacion checkout, form vacios y email iguales
+    const validation = () => {
+        if (checkData.length === 0 || userData.nombre === '' || userData.apellido === '' || userData.telefono === '' || userData.email === '' || userData.email1 === '' || (userData.email1 !== userData.email)) {
+            return false;
+        }
+        return true;
+    }
 
     return (
         <div>
@@ -87,13 +110,26 @@ const Order = ({ checkData, deleteCart }) => {
                     name="email"
                     value={userData.email}
                     onChange={handleInputChange}
-                    className="max-w-xs text-warning-500 mb-[150px]"
+                    className="max-w-xs text-warning-500 mb-4"
                 />
-                <Button
+                <Input
+                    color="warning"
+                    type="email"
+                    label="Email"
+                    variant="underlined"
+                    name="email1"
+                    errorMessage="Ambos email deben coincidir"
+                    value={userData.email1}
+                    onChange={handleInputChange}
+                    className="max-w-xs text-warning-500 mb-[60px]"
+                />
+                {/* <Button
+                    type='submit'
                     onClick={handleConfirmCompra}
                     color="warning">
                     Confirmar compra
-                </Button>
+                </Button> */}
+                <ModalCheckout orderId={orderId} funcion={handleConfirmCompra}   />
             </div>
         </div>
     );
