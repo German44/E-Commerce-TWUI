@@ -1,5 +1,8 @@
 
+import { collection, getDocs, query, where } from "firebase/firestore"
 import { Link } from "react-router-dom"
+import { db } from "../../firebase/client"
+import { useEffect, useState } from "react"
 
 export default function InicioPage() {
     return (
@@ -26,38 +29,15 @@ export default function InicioPage() {
                                         <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                                             <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                                                    alt=""
+                                                    src="https://www.nme.com/wp-content/uploads/2016/09/0893_140609_vanhalen.jpg"
+                                                    alt="Van Halen"
                                                     className="h-full w-full object-cover object-center"
                                                 />
                                             </div>
                                             <div className="h-64 w-44 overflow-hidden rounded-lg">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                                                    alt=""
-                                                    className="h-full w-full object-cover object-center"
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                                                    alt=""
-                                                    className="h-full w-full object-cover object-center"
-                                                />
-                                            </div>
-                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                                                    alt=""
-                                                    className="h-full w-full object-cover object-center"
-                                                />
-                                            </div>
-                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
-                                                <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                                                    alt=""
+                                                    src="https://www.nme.com/wp-content/uploads/2016/09/2012RollingStonesLogo50thAnniversary600PR030612.jpg"
+                                                    alt="Rollings Stones"
                                                     className="h-full w-full object-cover object-center"
                                                 />
                                             </div>
@@ -65,15 +45,38 @@ export default function InicioPage() {
                                         <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                                             <div className="h-64 w-44 overflow-hidden rounded-lg">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                                                    alt=""
+                                                    src="https://www.nme.com/wp-content/uploads/2016/09/0893_133804_Aerosmith1.jpg"
+                                                    alt="Aerosmith"
                                                     className="h-full w-full object-cover object-center"
                                                 />
                                             </div>
                                             <div className="h-64 w-44 overflow-hidden rounded-lg">
                                                 <img
-                                                    src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                                                    alt=""
+                                                    src="https://www.nme.com/wp-content/uploads/2016/10/0893_133738_ACDC.jpg"
+                                                    alt="AC DC"
+                                                    className="h-full w-full object-cover object-center"
+                                                />
+                                            </div>
+                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                <img
+                                                    src="https://bandlogos.files.wordpress.com/2011/09/dio_band_wallpaper.jpg"
+                                                    alt="Dio"
+                                                    className="h-full w-full object-cover   object-center"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                <img
+                                                    src="https://bandlogos.files.wordpress.com/2011/08/motorhead_wallpaper.jpg"
+                                                    alt="MotorHead"
+                                                    className="h-full w-full object-cover object-center"
+                                                />
+                                            </div>
+                                            <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                <img
+                                                    src="https://i.pinimg.com/564x/38/9a/6f/389a6f101989b13e56f0116eeae92634.jpg"
+                                                    alt="Scorpions"
                                                     className="h-full w-full object-cover object-center"
                                                 />
                                             </div>

@@ -3,7 +3,7 @@ import DropDown from "../Dropdown/Dropdown"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 import { db } from '../../firebase/client'
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"
+import { collection,  getDocs, query, where } from "firebase/firestore"
 
 function ItemListContainer({ greetings }) {
 
@@ -26,11 +26,9 @@ function ItemListContainer({ greetings }) {
         getDocs(url)
             .then(snapshot => {
                 const productsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
-                console.log(productsData)
                 setProducts(productsData)
             })
             .catch(e => console.error(e))
-
     }, [id])
 
 

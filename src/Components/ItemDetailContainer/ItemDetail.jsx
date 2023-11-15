@@ -19,7 +19,6 @@ function ItemDetail({ products }) {
             image: products?.image,
             quantity: data
         }
-        console.log(cart);
         addToCart(cart);
     };
     //* Funcion para elevar el dato del contador al padre

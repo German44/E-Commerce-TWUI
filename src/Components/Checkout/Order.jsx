@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import 'firebase/firestore';
-import { Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import ModalCheckout from '../ModalCheckout/ModalCheckout';
 
@@ -38,6 +38,7 @@ const Order = ({ checkData, deleteCart }) => {
         items: checkData,
         total: subtotal,
     }
+    //* Funcion para confirmar la compra , limpia el carrito y genera una orden en la base de datos de Firebird
     const handleConfirmCompra = () => {
         if (validation()) {
             const db = getFirestore();
@@ -53,12 +54,6 @@ const Order = ({ checkData, deleteCart }) => {
             });
         }
     };
-
-    // useEffect(() => {
-    //     console.log(orderId);
-    //     <ModalCheckout orderId={orderId} />
-    // }, [orderId]);
-
 
     //* Funcion validacion checkout, form vacios y email iguales
     const validation = () => {
@@ -123,13 +118,7 @@ const Order = ({ checkData, deleteCart }) => {
                     onChange={handleInputChange}
                     className="max-w-xs text-warning-500 mb-[60px]"
                 />
-                {/* <Button
-                    type='submit'
-                    onClick={handleConfirmCompra}
-                    color="warning">
-                    Confirmar compra
-                </Button> */}
-                <ModalCheckout orderId={orderId} funcion={handleConfirmCompra}   />
+                <ModalCheckout orderId={orderId} funcion={handleConfirmCompra} validation={validation()} />
             </div>
         </div>
     );

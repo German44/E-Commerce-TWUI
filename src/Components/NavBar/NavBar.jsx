@@ -3,7 +3,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import CartWidget from '../CartWidget/CartWidget'
 import Logo from "../Logo/Logo"
 import { Link, NavLink } from 'react-router-dom'
-import Styles from "../NavBar/style.module.css"
+
 
 
 
@@ -35,18 +35,18 @@ export default function NavBar() {
 
                                     <NavLink
                                         to={`/inicio`}
-                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium'}>
+                                        className='text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium' >
                                         Inicio
                                     </NavLink>
                                     <NavLink
                                         to={`/`}
-                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium '}>
+                                        className='text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium ' >
                                         Productos
                                     </NavLink>
                                     <NavLink
                                         to={`/checkout`}
-                                        className={'text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium'} >
-                                        Contacto
+                                        className='text-warning text-xl font-squealer hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md  font-medium' >
+                                        Checkout
                                     </NavLink>
                                 </div>
                             </div>
@@ -61,9 +61,9 @@ export default function NavBar() {
 
                     <Disclosure.Panel className="md:hidden">
                         <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3 w-full h-auto flex flex-col items-center">
-                            <NavLink to={`/inicio`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Inicio</NavLink>
-                            <NavLink to={`/`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Productos</NavLink>
-                            <NavLink to={`/contacto`} className={'text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium'} activeClassName={Styles.active}>Contacto</NavLink>
+                            <NavLink to={`/inicio`} className='text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium' >Inicio</NavLink>
+                            <NavLink to={`/`} className='text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium' >Productos</NavLink>
+                            <NavLink to={'/checkout'} className='text-warning hover:bg-purple-700 hover:text-warning px-3 py-2 rounded-md text-sm font-medium' >Contacto</NavLink>
                         </div>
                     </Disclosure.Panel>
                 </>

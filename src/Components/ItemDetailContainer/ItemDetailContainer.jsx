@@ -19,14 +19,11 @@ function ItemDetailsContainer() {
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     const productsData = { id: snapshot.id, ...snapshot.data() }
-                    console.log(productsData)
                     setProducts(productsData)
                 }
             })
-
             .catch(e => console.error(e))
     }, [id])
-
 
     // useEffect(() => {
     //     fetch(`https://fakestoreapi.com/products/${id}`)

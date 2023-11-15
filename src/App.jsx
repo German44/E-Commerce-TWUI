@@ -27,8 +27,6 @@ function App() {
             <Route exact path='/cart' element={<CartView />} />
             <Route exact path='/checkout' element={<Checkout />} />
             <Route exact path='/modal' element={<ModalCheckout />} />
-
-
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
           <Footer />

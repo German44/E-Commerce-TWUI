@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react"
 export const CartContext = createContext()
 
 const CartContextComponent = ({ children }) => {
-
+    //* Carga el local storage
     const [cartList, setCartList] = useState(() => {
         const localCart = JSON.parse(localStorage.getItem("localCartList"))
         return localCart || []
@@ -21,12 +21,11 @@ const CartContextComponent = ({ children }) => {
             setCartList([...cartList, cart]);
         }
     };
-
+    //* Guarda el carrito en el local storage
     useEffect(() => {
         localStorage.setItem("localCartList", JSON.stringify(cartList))
     }, [cartList])
 
-    console.log(cartList);
     //* Funcion elimina un item del carrito
     const removeToCart = (productIdToRemove) => {
         const updatedCart = cartList.filter(product => product.id !== productIdToRemove);
@@ -45,7 +44,6 @@ const CartContextComponent = ({ children }) => {
     const checkoutData = (cartData) => {
         setCheckData(cartData)
     }
-    console.log(checkData)
 
     return (
         < CartContext.Provider value={{ quantityTotal, setCartList, cartList, addToCart, removeToCart, deleteCart, checkoutData, checkData }} >
