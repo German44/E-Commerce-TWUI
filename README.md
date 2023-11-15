@@ -6,24 +6,20 @@ Este proyecto fue realizado como trabajo práctico final del curso de React.js d
 
 ## Tecnologías y Librerías Utilizadas
 
-- **Vite:** [Documentación](https://vitejs.dev/config/)
-  <img src="https://vitejs.dev/logo.svg" alt="Vite Logo" width="50">
+- <img src="https://vitejs.dev/logo.svg" alt="Vite Logo" width="50"> **Vite:** [Documentación](https://vitejs.dev/config/)
 
-- **Tailwind CSS:** [Documentación](https://tailwindcss.com/docs/installation)
-  <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS Logo" width="50">
 
-- **Tailwind UI:** [Sitio Oficial](https://tailwindui.com/)
-  <img src="https://tailwindui.com/img/tailwind-logo.svg" alt="Tailwind UI Logo" width="50">
+- <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS Logo" width="50"> **Tailwind CSS:** [Documentación](https://tailwindcss.com/docs/installation)
 
-- **Next UI:** [Documentación](https://nextui.org/docs/guide/introduction)
-  <img src="https://github.com/tandpfun/skill-icons/raw/main/icons/NextJS-Dark.svg" alt="Next UI Logo" width="50">
+- <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/TailwindCSS-Dark.svg" alt="Tailwind UI Logo" width="50"> **Tailwind UI:** [Sitio Oficial](https://tailwindui.com/)
+  
+- <img src="https://github.com/tandpfun/skill-icons/raw/main/icons/NextJS-Dark.svg" alt="Next UI Logo" width="50"> **Next UI:** [Documentación](https://nextui.org/docs/guide/introduction)
+  
+- <img src="https://www.svgrepo.com/show/354262/react-router.svg" alt="React Router DOM Logo" width="50"> **React Router DOM:** [Guía de Inicio Rápido](https://reactrouter.com/en/6.18.0/start/overview)
+  
 
-- **React Router DOM:** [Guía de Inicio Rápido](https://reactrouter.com/en/6.18.0/start/overview)
-  <img src="https://reactrouter.com/brand" alt="React Router DOM Logo" width="50">
-
-- **Firebase:** [Documentación](https://firebase.google.com/docs)
-  <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Firebase-Dark.svg" alt="Firebase Logo" width="50">
-
+- <img src="https://github.com/tandpfun/skill-icons/blob/main/icons/Firebase-Dark.svg" alt="Firebase Logo" width="50"> **Firebase:** [Documentación](https://firebase.google.com/docs)
+  
 ## Agregando Firebase
 
 ## Instalación
