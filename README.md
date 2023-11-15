@@ -1,6 +1,6 @@
 # E-Commerce en React.js
 
-![Proyecto E-Commerce](url_de_imagen_del_proyecto)
+![Proyecto E-Commerce](https://firebasestorage.googleapis.com/v0/b/proyectocoderhouse-43acb.appspot.com/o/E-Commerce%20Rock.png?alt=media&token=76c3f2d6-489d-49bc-8648-8c1af677b31e)
 
 Este proyecto fue realizado como trabajo práctico final del curso de React.js de Coderhouse.
 
@@ -30,7 +30,6 @@ Asegúrate de tener [Node.js](https://nodejs.org/) instalado en tu sistema antes
 
     ```bash
     git clone https://github.com/German44/E-Commerce-TWUI.git
-    cd tu-proyecto
     ```
 
 2. Instala las dependencias:
