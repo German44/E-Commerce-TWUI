@@ -25,7 +25,7 @@ const Item = ({ producto }) => {
                         Ver mas..
                     </Button>
                 </Link> */}
-                <Button className=" bg-purple-600 p-2 rounded-full text-warning font-semibold text-sm" variant="outline-info" as={Link} to={`/products/${product.id}`}>
+                <Button className=" bg-purple-600 p-2 rounded-full text-warning font-semibold text-sm" variant="outline-info" as={Link} to={`/products/${producto.id}`}>
                     Ver más
                 </Button>
 
