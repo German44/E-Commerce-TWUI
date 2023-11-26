@@ -7,7 +7,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../firebase/client'
 
 
-function ItemDetailsContainer() {
+function ItemDetailContainer() {
     const [products, setProducts,] = useState()
 
     const { id } = useParams()
@@ -41,4 +41,4 @@ function ItemDetailsContainer() {
         </div>
     )
 }
-export default ItemDetailsContainer
+export default ItemDetailContainer

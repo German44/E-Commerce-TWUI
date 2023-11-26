@@ -77,13 +77,16 @@ function ItemDetail({ products }) {
                                 </a>
                             </div>
                             <div className="mt-10 flex justify-center">
-                                <Link to={"/cart"} >
+                                {/* <Link to={"/cart"} >
                                     <Button
                                         color="warning"
                                         onClick={handleAddToCart}>
                                         Agregar al Carrito
                                     </Button>
-                                </Link>
+                                </Link> */}
+                                <Button className=" bg-warning p-2 rounded-full text-purple-600 font-semibold text-sm" variant="outline-info" as={Link} to={"/cart"} onClick={handleAddToCart}>
+                                    Agregar al Carrito
+                                </Button>
                             </div>
                             <div className="mt-6 text-center">
                                 <a href="#" className="group inline-flex text-base font-medium">

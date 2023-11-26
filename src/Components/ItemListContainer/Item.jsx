@@ -20,11 +20,14 @@ const Item = ({ producto }) => {
                     <p className="text-black text-lg">${producto?.price}</p>
                     <p className="text-black text-tiny">{producto?.category}</p>
                 </div>
-                <Link to={`/products/${producto?.id}`}>
+                {/* <Link to={`/products/${producto?.id}`}>
                     <Button className="text-sm" color="secondary" radius="full" size="sm">
                         Ver mas..
                     </Button>
-                </Link>
+                </Link> */}
+                <Button className=" bg-purple-600 p-2 rounded-full text-warning font-semibold text-sm" variant="outline-info" as={Link} to={`/products/${product.id}`}>
+                    Ver más
+                </Button>
 
             </CardFooter>
         </Card>
