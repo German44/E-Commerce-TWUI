@@ -47,8 +47,10 @@ function ItemListContainer({ greetings }) {
     return (
         <div className="w-full h-auto flex flex-col items-center ">
             <div className="w-full h-auto flex justify-center gap-20 items-center ">
+                <div className="flex justify-around w-1/2">
                 <h1 id="greetings" className="font-squealer text-[2rem] sm:text-[5rem] text-warning hover:text-danger hover:scale-100 ">{greetings}</h1>
                 <DropDown />
+                </div>
             </div>
             <ItemList products={products} />
         </div>

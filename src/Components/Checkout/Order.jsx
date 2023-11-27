@@ -3,7 +3,7 @@ import {Button } from "@nextui-org/react";
 import 'firebase/firestore';
 import { Input } from "@nextui-org/react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
-// import ModalCheckout from '../ModalCheckout/ModalCheckout';
+
 
 const Order = ({ checkData, deleteCart }) => {
     const [userData, setUserData] = useState({
@@ -118,7 +118,7 @@ const Order = ({ checkData, deleteCart }) => {
                     onChange={handleInputChange}
                     className="max-w-xs text-warning-500 mb-[30px]"
                 />
-                {/* <ModalCheckout orderId={orderId} funcion={handleConfirmCompra} validation={validation()} /> */}
+
                 <Button
                     onClick={handleConfirmCompra}
                     color="warning">
