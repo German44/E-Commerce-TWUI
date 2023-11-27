@@ -9,7 +9,7 @@ import NotFoundPage from "./Components/NotFoundPage/NotFoundPage"
 import CartContextComponent from "./Context/CartContext"
 import Checkout from "./Components/Checkout/Checkout"
 import CartView from "./Components/CartView/CartView"
-import ModalCheckout from "./Components/ModalCheckout/ModalCheckout"
+
 
 function App() {
 
@@ -26,7 +26,6 @@ function App() {
             <Route exact path='/products/:id' element={<ItemDetailContainer />} />
             <Route exact path='/cart' element={<CartView />} />
             <Route exact path='/checkout' element={<Checkout />} />
-            <Route exact path='/modal' element={<ModalCheckout />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
           <Footer />
