@@ -1,47 +1,39 @@
-
 import { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 
 export default function CartView() {
-
     const { cartList, deleteCart, checkoutData } = useContext(CartContext);
 
-
-    //& Posible customHook
     const subTotal = () => {
         let total = 0;
         for (let i = 0; i < cartList.length; i++) {
             total += cartList[i].price * cartList[i].quantity;
         }
         return total;
-    }
-    //* Funcion multiplicadora cantidad por precio
-    const total = (a, b) => {
-        let totalItem = a * b
-        return totalItem
-    }
-    //* Funcion limpia carrito
+    };
+
+    const total = (a, b) => a * b;
+    
+
     const handleWipe = () => {
         deleteCart();
-    }
-    //* Funcion Generadora de datos del carrito
-    const handleCheckout = () => {
-        const cartData = [];
+    };
 
-        cartList.map((product) => (
-            cartData.push({
-                id: product.id,
-                title: product.title,
-                price: total(product.quantity, product.price),
-                quantity: product.quantity,
-            },)
-        ));
+    const handleCheckout = () => {
+        const cartData = cartList.map((product) => ({
+            id: product.id,
+            title: product.title,
+            price: total(product.quantity, product.price),
+            quantity: product.quantity,
+        }));
+
         checkoutData(cartData);
-    }
+    };
 
     return (
+
         <div className="bg-black">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:px-0">
                 <h1 className="text-center text-3xl font-bold tracking-tight text-warning sm:text-4xl">Carrito de compras</h1>
@@ -54,8 +46,8 @@ export default function CartView() {
 
                         {/* Mapeado con el componente CartItem */}
                         {cartList.map((product) => (
-                            <CartItem key={product.id} product={product} total={total} />
-                        ))}
+                            <CartItem key={product.id} product={product} total={total(product.quantity, product.price)} />
+                            ))}
                     </section>
                     {/* Order summary */}
                     <section aria-labelledby="summary-heading" className="mt-10">
