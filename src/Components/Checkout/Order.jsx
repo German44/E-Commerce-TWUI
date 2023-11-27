@@ -1,9 +1,9 @@
 import { useState } from 'react';
-
+import {Button } from "@nextui-org/react";
 import 'firebase/firestore';
 import { Input } from "@nextui-org/react";
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
-import ModalCheckout from '../ModalCheckout/ModalCheckout';
+// import ModalCheckout from '../ModalCheckout/ModalCheckout';
 
 const Order = ({ checkData, deleteCart }) => {
     const [userData, setUserData] = useState({
@@ -116,9 +116,15 @@ const Order = ({ checkData, deleteCart }) => {
                     errorMessage="Ambos email deben coincidir"
                     value={userData.email1}
                     onChange={handleInputChange}
-                    className="max-w-xs text-warning-500 mb-[60px]"
+                    className="max-w-xs text-warning-500 mb-[30px]"
                 />
-                <ModalCheckout orderId={orderId} funcion={handleConfirmCompra} validation={validation()} />
+                {/* <ModalCheckout orderId={orderId} funcion={handleConfirmCompra} validation={validation()} /> */}
+                <Button
+                    onClick={handleConfirmCompra}
+                    color="warning">
+                    Confirmar compra
+                </Button>
+                <h3 className='py-4 font-bold text-red-500'>Su Id de compra es: {orderId}</h3>
             </div>
         </div>
     );
